@@ -1,8 +1,15 @@
 package net.jcortes.moremobilities;
 
 import com.mojang.logging.LogUtils;
+import net.jcortes.moremobilities.entity.EntityRegistry;
+import net.jcortes.moremobilities.entity.client.BikeRenderer;
 import net.jcortes.moremobilities.item.ModCreativeModeTabs;
 import net.jcortes.moremobilities.item.ModItems;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.entity.vehicle.Minecart;
+import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -32,6 +39,7 @@ public class MoreMobilities
 
         // Register mod classes
         ModItems.register(modEventBus);
+        EntityRegistry.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
@@ -73,7 +81,7 @@ public class MoreMobilities
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            EntityRenderers.register(EntityRegistry.BIKE.get(), BikeRenderer::new);
         }
     }
 }

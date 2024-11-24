@@ -18,6 +18,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.more_mobilities_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.WHEEL.get());
+                        output.accept(ModItems.BIKE_ITEM.get());
                     })
                     .build());
 
