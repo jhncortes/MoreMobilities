@@ -14,7 +14,7 @@ public class EntityRegistry {
 
     public static final RegistryObject<EntityType<EntityBike>> BIKE =
             ENTITY_TYPES.register("bike", () -> EntityType.Builder.of(EntityBike::new, MobCategory.MISC)
-                    .sized(3f, 2f).build("bike"));
+                    .sized(1f, 1f).build("bike"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
